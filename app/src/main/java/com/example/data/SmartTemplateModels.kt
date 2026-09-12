@@ -1,0 +1,163 @@
+package com.example.data
+
+data class CustomDocumentTemplate(
+    val id: String = "contractor_trades_pro",
+    val name: String = "Contractor Trades Pro",
+    val templateType: String = "BOTH", // "INVOICE", "ESTIMATE", "BOTH"
+    val layoutStyle: String = "TRADES_ORANGE", // "TRADES_ORANGE", "EXECUTIVE_NAVY", "MODERN_MINIMAL", "COMPACT_QUICKPAY"
+    val companyName: String = "C520X Express Logistics & Trades",
+    val companySlogan: String = "Commercial & Residential Contracting • Freight Dispatch",
+    val companyPhone: String = "(800) 520-XPRS",
+    val companyEmail: String = "billing@c520express.com",
+    val companyAddress: String = "100 Industrial Pkwy, Suite 400, Denver, CO 80202",
+    val licenseNumber: String = "CO-LIC #89421-GC • Bonded & Insured",
+    val taxRegistrationNumber: String = "TAX ID: 84-2918402",
+    val accentColorHex: String = "#E65100", // OrangePrimary default
+    val defaultTaxRatePercent: Double = 8.25,
+    val paymentTermsText: String = "Net 15 Days • 50% Deposit Due Upon Acceptance • Stripe ACH/Cards Accepted",
+    val warrantyNotesText: String = "All labor and materials are guaranteed under our 1-Year Master Craftsmanship Warranty.",
+    // Modular layout feature toggles
+    val showLogoBadge: Boolean = true,
+    val showScopeOfWork: Boolean = true,
+    val showItemizedBreakdown: Boolean = true,
+    val showUnitPrices: Boolean = true,
+    val showProjectPhases: Boolean = true,
+    val showPaymentMilestones: Boolean = true,
+    val showClientSignatureLine: Boolean = true,
+    val showStripePaymentLink: Boolean = true,
+    val showLicenseBondBadge: Boolean = true,
+    val showTaxLine: Boolean = true,
+    val showDepositDue: Boolean = true,
+    val defaultDepositPercent: Double = 50.0,
+    val showDiscountOption: Boolean = false,
+    val defaultDiscountPercent: Double = 0.0
+)
+
+object SmartTemplatePresets {
+    val CONTRACTOR_TRADES_PRO = CustomDocumentTemplate(
+        id = "contractor_trades_pro",
+        name = "Contractor Trades Pro",
+        templateType = "BOTH",
+        layoutStyle = "TRADES_ORANGE",
+        companyName = "C520X Express Logistics & Trades",
+        companySlogan = "Licensed General Contracting, Electrical & Plumbing",
+        companyPhone = "(800) 520-XPRS",
+        companyEmail = "dispatch@c520express.com",
+        companyAddress = "100 Industrial Pkwy, Suite 400, Denver, CO 80202",
+        licenseNumber = "CO-LIC #89421-GC • $2M Commercial General Liability Bonded",
+        taxRegistrationNumber = "STATE TAX ID: 84-2918402",
+        accentColorHex = "#E65100",
+        defaultTaxRatePercent = 8.25,
+        paymentTermsText = "50% Retainer upon mobilization, 30% rough inspection, 20% final signoff.",
+        warrantyNotesText = "Full 1-Year Trade Warranty covering all installed mechanicals, roughs, and finishes.",
+        showLogoBadge = true,
+        showScopeOfWork = true,
+        showItemizedBreakdown = true,
+        showUnitPrices = true,
+        showProjectPhases = true,
+        showPaymentMilestones = true,
+        showClientSignatureLine = true,
+        showStripePaymentLink = true,
+        showLicenseBondBadge = true,
+        showTaxLine = true,
+        showDepositDue = true,
+        defaultDepositPercent = 50.0
+    )
+
+    val EXECUTIVE_NAVY = CustomDocumentTemplate(
+        id = "executive_navy",
+        name = "Executive Enterprise",
+        templateType = "BOTH",
+        layoutStyle = "EXECUTIVE_NAVY",
+        companyName = "C520X Commercial Systems Corp",
+        companySlogan = "Enterprise Logistics, Asset Management & Facility Operations",
+        companyPhone = "(800) 520-9777",
+        companyEmail = "enterprise@c520express.com",
+        companyAddress = "700 17th Street, Floor 22, Denver, CO 80202",
+        licenseNumber = "DUNS #09-382-4110 • CAGE Code: 8XF29",
+        taxRegistrationNumber = "FEDERAL EIN: 84-1192837",
+        accentColorHex = "#0D47A1",
+        defaultTaxRatePercent = 7.50,
+        paymentTermsText = "Net 30 Days. Purchase Order reference required on wire remittance.",
+        warrantyNotesText = "Standard Corporate SLA & Master Service Agreement Section 8 applies.",
+        showLogoBadge = true,
+        showScopeOfWork = true,
+        showItemizedBreakdown = true,
+        showUnitPrices = true,
+        showProjectPhases = false,
+        showPaymentMilestones = false,
+        showClientSignatureLine = true,
+        showStripePaymentLink = true,
+        showLicenseBondBadge = true,
+        showTaxLine = true,
+        showDepositDue = false,
+        defaultDepositPercent = 0.0
+    )
+
+    val MODERN_MINIMAL = CustomDocumentTemplate(
+        id = "modern_minimal",
+        name = "Modern Minimalist",
+        templateType = "BOTH",
+        layoutStyle = "MODERN_MINIMAL",
+        companyName = "C520X Studio & Design-Build",
+        companySlogan = "High-Precision Architecture & Finish Construction",
+        companyPhone = "(800) 520-4100",
+        companyEmail = "hello@c520studio.com",
+        companyAddress = "3400 Walnut St, Denver, CO 80205",
+        licenseNumber = "AIA Affiliate #40281 • CO Class-A Licensed",
+        taxRegistrationNumber = "STATE ID: 84-749102",
+        accentColorHex = "#1E293B",
+        defaultTaxRatePercent = 8.0,
+        paymentTermsText = "Due on receipt via Stripe Instant Checkout or direct ACH transfer.",
+        warrantyNotesText = "Architectural grade craftsmanship standard guaranteed.",
+        showLogoBadge = true,
+        showScopeOfWork = true,
+        showItemizedBreakdown = true,
+        showUnitPrices = false,
+        showProjectPhases = true,
+        showPaymentMilestones = true,
+        showClientSignatureLine = true,
+        showStripePaymentLink = true,
+        showLicenseBondBadge = false,
+        showTaxLine = true,
+        showDepositDue = true,
+        defaultDepositPercent = 35.0
+    )
+
+    val COMPACT_QUICKPAY = CustomDocumentTemplate(
+        id = "compact_quickpay",
+        name = "Compact QuickPay Freight",
+        templateType = "INVOICE",
+        layoutStyle = "COMPACT_QUICKPAY",
+        companyName = "C520X Freight Dispatch & Transport",
+        companySlogan = "Interstate Over-the-Road Logistics & Hotshot Dispatch",
+        companyPhone = "(800) 520-HAUL",
+        companyEmail = "factoring@c520express.com",
+        companyAddress = "100 Industrial Pkwy, Denver, CO 80202",
+        licenseNumber = "USDOT #3918241 • MC-849201-B",
+        taxRegistrationNumber = "EIN: 84-3918204",
+        accentColorHex = "#1B5E20",
+        defaultTaxRatePercent = 0.0,
+        paymentTermsText = "24-Hour Instant QuickPay via Stripe or Triumph Factoring (3% fee).",
+        warrantyNotesText = "Cargo insured to $250,000 via Great West Casualty Company.",
+        showLogoBadge = true,
+        showScopeOfWork = false,
+        showItemizedBreakdown = true,
+        showUnitPrices = true,
+        showProjectPhases = false,
+        showPaymentMilestones = false,
+        showClientSignatureLine = false,
+        showStripePaymentLink = true,
+        showLicenseBondBadge = true,
+        showTaxLine = false,
+        showDepositDue = false,
+        defaultDepositPercent = 0.0
+    )
+
+    val ALL_PRESETS = listOf(
+        CONTRACTOR_TRADES_PRO,
+        EXECUTIVE_NAVY,
+        MODERN_MINIMAL,
+        COMPACT_QUICKPAY
+    )
+}

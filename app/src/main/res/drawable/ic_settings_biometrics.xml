@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <!-- Fingerprint / Biometric Sensor Arc -->
+    <path
+        android:strokeColor="#FF6B00"
+        android:strokeWidth="1.8"
+        android:strokeLineCap="round"
+        android:fillColor="#00000000"
+        android:pathData="M17.81,4.87 C16.13,3.7 14.15,3 12,3 C9.85,3 7.87,3.7 6.19,4.87" />
+    <path
+        android:strokeColor="#FF8A00"
+        android:strokeWidth="1.8"
+        android:strokeLineCap="round"
+        android:fillColor="#00000000"
+        android:pathData="M2.72,9.63 C4.15,6.58 7.8,4.5 12,4.5 C16.2,4.5 19.85,6.58 21.28,9.63" />
+    <path
+        android:strokeColor="#FFA726"
+        android:strokeWidth="1.8"
+        android:strokeLineCap="round"
+        android:fillColor="#00000000"
+        android:pathData="M12,8.5 C9.51,8.5 7.5,10.51 7.5,13 C7.5,15.5 8.7,18.2 10.2,20.4" />
+    <path
+        android:strokeColor="#FFB74D"
+        android:strokeWidth="1.8"
+        android:strokeLineCap="round"
+        android:fillColor="#00000000"
+        android:pathData="M12,11.5 C11.17,11.5 10.5,12.17 10.5,13 C10.5,14.5 11.2,16.5 12,18.5" />
+    <path
+        android:strokeColor="#00E676"
+        android:strokeWidth="1.8"
+        android:strokeLineCap="round"
+        android:fillColor="#00000000"
+        android:pathData="M16.5,13 C16.5,16.8 14.8,19.8 13.5,21.5" />
+</vector>

@@ -1,0 +1,6 @@
+{
+  "name": "C520X",
+  "description": "C520X Master App - Master platform receiving 100% inflow with automated clearing vault, 80/20 contractor splits, 88-93/7-12% driver/owner-operator splits, DAT One style freight loadboard, live contractor marketboard, and dispatch operations.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

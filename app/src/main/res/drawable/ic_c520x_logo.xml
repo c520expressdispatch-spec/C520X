@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <!-- Modern Hexagon Badge Background -->
+    <path
+        android:fillColor="#0B132B"
+        android:pathData="M54,10 L94,32 L94,76 L54,98 L14,76 L14,32 Z" />
+
+    <!-- Hexagon Border / Accent Ring -->
+    <path
+        android:strokeColor="#FF6B00"
+        android:strokeWidth="3.5"
+        android:strokeLineJoin="round"
+        android:strokeLineCap="round"
+        android:fillColor="#00000000"
+        android:pathData="M54,12 L92,33 L92,75 L54,96 L16,75 L16,33 Z" />
+
+    <!-- Stylized Geometric "C" Arc (Teal / Amber Accent) -->
+    <path
+        android:strokeColor="#FF8A00"
+        android:strokeWidth="4"
+        android:strokeLineCap="round"
+        android:fillColor="#00000000"
+        android:pathData="M64,32 A24,24 0 1,0 64,76" />
+
+    <!-- Dynamic Speed Lightning Bolt (Pure Electric Orange & White) -->
+    <path
+        android:fillColor="#FF6B00"
+        android:pathData="M58,24 L38,52 L52,52 L48,84 L72,50 L56,50 Z" />
+
+    <!-- Inner Core Highlight for 3D Contrast -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M56,32 L44,48 L52,48 L49,68 L64,48 L55,48 Z" />
+
+    <!-- Dual Speed Bars (Representing Dispatch & Express Movement) -->
+    <path
+        android:strokeColor="#48CAE4"
+        android:strokeWidth="2.5"
+        android:strokeLineCap="round"
+        android:pathData="M24,46 L32,46" />
+    <path
+        android:strokeColor="#48CAE4"
+        android:strokeWidth="2.5"
+        android:strokeLineCap="round"
+        android:pathData="M22,54 L34,54" />
+    <path
+        android:strokeColor="#48CAE4"
+        android:strokeWidth="2.5"
+        android:strokeLineCap="round"
+        android:pathData="M26,62 L32,62" />
+
+    <!-- Trailing Dispatch Dots -->
+    <path
+        android:fillColor="#FF8A00"
+        android:pathData="M78,40 A3,3 0 1,1 78,39.9 Z" />
+    <path
+        android:fillColor="#FF8A00"
+        android:pathData="M82,54 A3.5,3.5 0 1,1 82,53.9 Z" />
+    <path
+        android:fillColor="#FF8A00"
+        android:pathData="M78,68 A3,3 0 1,1 78,67.9 Z" />
+
+</vector>

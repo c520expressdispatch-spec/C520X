@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <!-- Slack 4-Color Hatch Hashtag SVG -->
+    <path
+        android:fillColor="#E01E5A"
+        android:pathData="M5,10 C3.9,10 3,9.1 3,8 C3,6.9 3.9,6 5,6 C6.1,6 7,6.9 7,8 V10 H5 Z M5,11 H7 V15 C7,16.1 6.1,17 5,17 C3.9,17 3,16.1 3,15 C3,13.9 3.9,13 5,13 L5,11 Z" />
+    <path
+        android:fillColor="#36C5F0"
+        android:pathData="M10,5 C10,3.9 9.1,3 8,3 C6.9,3 6,3.9 6,5 C6,6.1 6.9,7 8,7 H10 V5 Z M11,5 H15 C16.1,5 17,5.9 17,7 C17,8.1 16.1,9 15,9 H11 V5 Z" />
+    <path
+        android:fillColor="#2EB67D"
+        android:pathData="M19,14 C20.1,14 21,14.9 21,16 C21,17.1 20.1,18 19,18 C17.9,18 17,17.1 17,16 V14 H19 Z M19,13 H17 V9 C17,7.9 17.9,7 19,7 C20.1,7 21,7.9 21,9 C21,10.1 20.1,11 19,11 L19,13 Z" />
+    <path
+        android:fillColor="#ECB22E"
+        android:pathData="M14,19 C14,20.1 14.9,21 16,21 C17.1,21 18,20.1 18,19 C18,17.9 17.1,17 16,17 H14 V19 Z M13,19 H9 C7.9,19 7,18.1 7,17 C7,15.9 7.9,15 9,15 H13 V19 Z" />
+</vector>

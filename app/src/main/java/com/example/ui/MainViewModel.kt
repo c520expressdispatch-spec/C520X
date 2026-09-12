@@ -363,6 +363,25 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     private val _masterAuthError = MutableStateFlow<String?>(null)
     val masterAuthError: StateFlow<String?> = _masterAuthError.asStateFlow()
 
+    // Official Website & Work Email State
+    private val _officialWebsiteUrl = MutableStateFlow("https://sites.google.com/view/c520x/home")
+    val officialWebsiteUrl: StateFlow<String> = _officialWebsiteUrl.asStateFlow()
+
+    private val _workEmail = MutableStateFlow("c520x@c520x.com")
+    val workEmail: StateFlow<String> = _workEmail.asStateFlow()
+
+    fun updateWorkEmail(newEmail: String) {
+        if (newEmail.isNotBlank()) {
+            _workEmail.value = newEmail.trim()
+        }
+    }
+
+    fun updateOfficialWebsiteUrl(newUrl: String) {
+        if (newUrl.isNotBlank()) {
+            _officialWebsiteUrl.value = newUrl.trim()
+        }
+    }
+
     // 1. Live Gemini Screen Share with Sensitive Data Guardrails
     private val _geminiScreenShareState = MutableStateFlow(GeminiScreenShareState())
     val geminiScreenShareState: StateFlow<GeminiScreenShareState> = _geminiScreenShareState.asStateFlow()

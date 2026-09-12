@@ -57,6 +57,15 @@ import androidx.compose.material.icons.filled.Tune
 import androidx.compose.material.icons.filled.VerifiedUser
 import androidx.compose.material.icons.filled.ArrowDropDown
 import androidx.compose.material.icons.filled.ArrowDropUp
+import androidx.compose.material.icons.filled.Edit
+import androidx.compose.material.icons.filled.Language
+import androidx.compose.material.icons.filled.Mail
+import androidx.compose.material.icons.filled.OpenInBrowser
+import android.content.Intent
+import android.net.Uri
+import android.widget.Toast
+import androidx.compose.material3.AlertDialog
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -130,6 +139,13 @@ fun MasterAdminHubScreen(viewModel: MainViewModel) {
 
     var simAmountInput by remember { mutableStateOf("2500") }
     var selectedAuditTab by remember { mutableStateOf("ALL") } // ALL, TRADES, FREIGHT
+
+    val officialWebsiteUrl by viewModel.officialWebsiteUrl.collectAsState()
+    val workEmail by viewModel.workEmail.collectAsState()
+    val context = LocalContext.current
+    val clipboardManager = LocalClipboardManager.current
+    var showEditEmailDialog by remember { mutableStateOf(false) }
+    var editedEmailInput by remember { mutableStateOf("") }
 
     val simValue = simAmountInput.toDoubleOrNull() ?: 2500.0
     val simContractorPayout = simValue * 0.80
@@ -209,9 +225,9 @@ fun MasterAdminHubScreen(viewModel: MainViewModel) {
                                         }
                                     }
                                     Text(
-                                        text = "Platform Owner: c520express.dispatch@gmail.com",
+                                        text = "Platform Owner: $workEmail",
                                         fontSize = 12.sp,
-                                        color = Color.White.copy(alpha = 0.8f)
+                                        color = Color.White.copy(alpha = 0.85f)
                                     )
                                 }
                             }
@@ -249,6 +265,172 @@ fun MasterAdminHubScreen(viewModel: MainViewModel) {
 
                         Spacer(modifier = Modifier.height(14.dp))
                         HorizontalDivider(color = Color.White.copy(alpha = 0.15f))
+                        Spacer(modifier = Modifier.height(12.dp))
+
+                        // Official Company Presence & Domain Email Hub
+                        Card(
+                            shape = RoundedCornerShape(12.dp),
+                            colors = CardDefaults.cardColors(containerColor = Navy800.copy(alpha = 0.85f)),
+                            border = BorderStroke(1.dp, AccentCyan.copy(alpha = 0.45f)),
+                            modifier = Modifier.fillMaxWidth().testTag("official_website_hub_card")
+                        ) {
+                            Column(modifier = Modifier.padding(14.dp)) {
+                                Row(
+                                    modifier = Modifier.fillMaxWidth(),
+                                    horizontalArrangement = Arrangement.SpaceBetween,
+                                    verticalAlignment = Alignment.CenterVertically
+                                ) {
+                                    Row(verticalAlignment = Alignment.CenterVertically) {
+                                        Box(
+                                            modifier = Modifier
+                                                .size(30.dp)
+                                                .clip(RoundedCornerShape(8.dp))
+                                                .background(AccentCyan.copy(alpha = 0.2f)),
+                                            contentAlignment = Alignment.Center
+                                        ) {
+                                            Icon(
+                                                Icons.Default.Language,
+                                                contentDescription = "Official Website",
+                                                tint = AccentCyan,
+                                                modifier = Modifier.size(18.dp)
+                                            )
+                                        }
+                                        Spacer(modifier = Modifier.width(8.dp))
+                                        Column {
+                                            Text(
+                                                text = "OFFICIAL WEBSITE & WORK EMAIL",
+                                                fontSize = 11.sp,
+                                                fontWeight = FontWeight.Bold,
+                                                color = AccentCyan
+                                            )
+                                            Text(
+                                                text = "Verified Domain & Corporate Identity",
+                                                fontSize = 10.sp,
+                                                color = Color.LightGray
+                                            )
+                                        }
+                                    }
+
+                                    Surface(
+                                        shape = RoundedCornerShape(6.dp),
+                                        color = StatusGreen.copy(alpha = 0.2f)
+                                    ) {
+                                        Text(
+                                            text = "ONLINE",
+                                            fontSize = 9.sp,
+                                            fontWeight = FontWeight.Black,
+                                            color = StatusGreen,
+                                            modifier = Modifier.padding(horizontal = 6.dp, vertical = 2.dp)
+                                        )
+                                    }
+                                }
+
+                                Spacer(modifier = Modifier.height(10.dp))
+
+                                // Website Row
+                                Row(
+                                    modifier = Modifier
+                                        .fillMaxWidth()
+                                        .clip(RoundedCornerShape(8.dp))
+                                        .background(Color.White.copy(alpha = 0.06f))
+                                        .padding(horizontal = 10.dp, vertical = 8.dp),
+                                    verticalAlignment = Alignment.CenterVertically,
+                                    horizontalArrangement = Arrangement.SpaceBetween
+                                ) {
+                                    Column(modifier = Modifier.weight(1f)) {
+                                        Text("Official Website URL", fontSize = 10.sp, color = Color.Gray)
+                                        Text(
+                                            text = officialWebsiteUrl,
+                                            fontSize = 12.sp,
+                                            fontWeight = FontWeight.SemiBold,
+                                            color = Color.White,
+                                            maxLines = 1
+                                        )
+                                    }
+                                    Row(horizontalArrangement = Arrangement.spacedBy(4.dp)) {
+                                        IconButton(
+                                            onClick = {
+                                                clipboardManager.setText(AnnotatedString(officialWebsiteUrl))
+                                                Toast.makeText(context, "Website link copied!", Toast.LENGTH_SHORT).show()
+                                            },
+                                            modifier = Modifier.size(32.dp)
+                                        ) {
+                                            Icon(Icons.Default.ContentCopy, contentDescription = "Copy URL", tint = AccentCyan, modifier = Modifier.size(16.dp))
+                                        }
+                                        Button(
+                                            onClick = {
+                                                val intent = Intent(Intent.ACTION_VIEW, Uri.parse(officialWebsiteUrl))
+                                                context.startActivity(intent)
+                                            },
+                                            colors = ButtonDefaults.buttonColors(containerColor = AccentCyan),
+                                            shape = RoundedCornerShape(6.dp),
+                                            contentPadding = PaddingValues(horizontal = 8.dp, vertical = 4.dp),
+                                            modifier = Modifier.height(28.dp)
+                                        ) {
+                                            Icon(Icons.Default.OpenInBrowser, contentDescription = null, tint = Navy900, modifier = Modifier.size(14.dp))
+                                            Spacer(modifier = Modifier.width(4.dp))
+                                            Text("Visit", color = Navy900, fontSize = 11.sp, fontWeight = FontWeight.Bold)
+                                        }
+                                    }
+                                }
+
+                                Spacer(modifier = Modifier.height(8.dp))
+
+                                // Work Email Row
+                                Row(
+                                    modifier = Modifier
+                                        .fillMaxWidth()
+                                        .clip(RoundedCornerShape(8.dp))
+                                        .background(Color.White.copy(alpha = 0.06f))
+                                        .padding(horizontal = 10.dp, vertical = 8.dp),
+                                    verticalAlignment = Alignment.CenterVertically,
+                                    horizontalArrangement = Arrangement.SpaceBetween
+                                ) {
+                                    Column(modifier = Modifier.weight(1f)) {
+                                        Text("Active Corporate Work Email", fontSize = 10.sp, color = Color.Gray)
+                                        Text(
+                                            text = workEmail,
+                                            fontSize = 12.sp,
+                                            fontWeight = FontWeight.SemiBold,
+                                            color = StatusAmber,
+                                            maxLines = 1
+                                        )
+                                    }
+                                    Row(horizontalArrangement = Arrangement.spacedBy(4.dp)) {
+                                        IconButton(
+                                            onClick = {
+                                                val mailIntent = Intent(Intent.ACTION_SENDTO).apply {
+                                                    data = Uri.parse("mailto:$workEmail")
+                                                }
+                                                try {
+                                                    context.startActivity(mailIntent)
+                                                } catch (e: Exception) {
+                                                    Toast.makeText(context, "No email client found", Toast.LENGTH_SHORT).show()
+                                                }
+                                            },
+                                            modifier = Modifier.size(32.dp)
+                                        ) {
+                                            Icon(Icons.Default.Mail, contentDescription = "Email", tint = OrangePrimary, modifier = Modifier.size(16.dp))
+                                        }
+                                        Button(
+                                            onClick = {
+                                                editedEmailInput = workEmail
+                                                showEditEmailDialog = true
+                                            },
+                                            colors = ButtonDefaults.buttonColors(containerColor = OrangePrimary),
+                                            shape = RoundedCornerShape(6.dp),
+                                            contentPadding = PaddingValues(horizontal = 8.dp, vertical = 4.dp),
+                                            modifier = Modifier.height(28.dp)
+                                        ) {
+                                            Icon(Icons.Default.Edit, contentDescription = null, tint = Color.White, modifier = Modifier.size(12.dp))
+                                            Spacer(modifier = Modifier.width(4.dp))
+                                            Text("Update", color = Color.White, fontSize = 11.sp, fontWeight = FontWeight.Bold)
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
                         Spacer(modifier = Modifier.height(12.dp))
 
                         // 100% Vault Refined Dropdown Card
@@ -1199,6 +1381,52 @@ fun MasterAdminHubScreen(viewModel: MainViewModel) {
                 }
             }
         }
+    }
+
+    if (showEditEmailDialog) {
+        AlertDialog(
+            onDismissRequest = { showEditEmailDialog = false },
+            title = {
+                Text("Update Website Work Email", fontWeight = FontWeight.Bold)
+            },
+            text = {
+                Column {
+                    Text(
+                        "Enter your newly configured corporate work email address. This will be updated across dispatch logs, invoice headers, and corporate communications.",
+                        fontSize = 12.sp,
+                        color = Color.Gray
+                    )
+                    Spacer(modifier = Modifier.height(12.dp))
+                    OutlinedTextField(
+                        value = editedEmailInput,
+                        onValueChange = { editedEmailInput = it },
+                        label = { Text("Corporate Work Email") },
+                        placeholder = { Text("dispatch@yourdomain.com") },
+                        singleLine = true,
+                        modifier = Modifier.fillMaxWidth()
+                    )
+                }
+            },
+            confirmButton = {
+                Button(
+                    onClick = {
+                        if (editedEmailInput.isNotBlank()) {
+                            viewModel.updateWorkEmail(editedEmailInput)
+                            Toast.makeText(context, "Work email updated to ${editedEmailInput.trim()}", Toast.LENGTH_SHORT).show()
+                        }
+                        showEditEmailDialog = false
+                    },
+                    colors = ButtonDefaults.buttonColors(containerColor = OrangePrimary)
+                ) {
+                    Text("Save Email")
+                }
+            },
+            dismissButton = {
+                OutlinedButton(onClick = { showEditEmailDialog = false }) {
+                    Text("Cancel")
+                }
+            }
+        )
     }
 }
 

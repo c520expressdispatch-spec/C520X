@@ -42,7 +42,7 @@
 
         <meta-data
             android:name="google-site-verification"
-            android:value="rtmwkfhffbPKWgOpvzydVpA3-2BpKdFZYaiv-oJ-728" />
+            android:value="google04c7aeb646e4a9e1" />
 
         <service
             android:name=".data.C520xFirebaseMessagingService"

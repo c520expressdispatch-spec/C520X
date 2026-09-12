@@ -44,6 +44,14 @@
             android:name="google-site-verification"
             android:value="google04c7aeb646e4a9e1" />
 
+        <meta-data
+            android:name="google-site-verification-dns"
+            android:value="google-site-verification=1aaYP0TMFL3KaICzukItKzg8gfVNHdJhdq8MV3Ir4_E" />
+
+        <meta-data
+            android:name="google-site-verification-sc"
+            android:value="1aaYP0TMFL3KaICzukItKzg8gfVNHdJhdq8MV3Ir4_E" />
+
         <service
             android:name=".data.C520xFirebaseMessagingService"
             android:exported="false">
